@@ -1,8 +1,8 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
-//ф-я визначення рандомно урону
-int getRandomDamage(int min, int max)
+//ф-я визначення рандомно числа
+int getRandom(int min, int max)
 {
 	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
 
@@ -12,7 +12,7 @@ int getRandomDamage(int min, int max)
 //moduficachia yronu
 int modsDamage(int getPointRandomDamage(int , int ), int minDamage, int maxDamage, int attack, int defense)
 {
-	int rDamage = getRandomDamage(minDamage, maxDamage);
+	int rDamage = getRandom(minDamage, maxDamage);
 	return static_cast<int>((attack/defense)*rDamage);
 }
 

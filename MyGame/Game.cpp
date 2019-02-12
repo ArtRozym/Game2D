@@ -9,11 +9,12 @@
 #include "Personages.h"
 #include "Functions.h"
 #include <iostream>
+#include <list>
 
 int main()
 {
 	// создаём окно
-	sf::RenderWindow window(sf::VideoMode(800, 600, 32), "My Game");
+	sf::RenderWindow window(sf::VideoMode(800, 800, 32), "My Game");
 	
 	std::cout << "program begin\n\n";
 
@@ -21,6 +22,15 @@ int main()
 
 	std::cout << "program not begin\n\n";
 
+	//создаю список, сюда буду кидать объекты.
+	std::list<Personage*> entities; 
+	//итератор чтобы проходить по эл-там списка
+	std::list<Personage*> ::iterator it;
+
+	//Personage easyInfantry{};
+	
+
+	/*
 	// основной цикл
 	while (window.isOpen())
 	{
@@ -40,6 +50,7 @@ int main()
 		// отображаем на экран
 		//window.display();
 	}
+	*/
 
 	std::cout << "the end\n\n";
 	return 0;

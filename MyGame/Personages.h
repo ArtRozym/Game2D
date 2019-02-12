@@ -3,7 +3,7 @@
 
 class Personage
 {
-public:
+private:
 	//координаты игрока х и у, высота, ширина, ускорение (по х и по у), сама скорость
 	float coordinateX, coordinateY, height, width, speedUpDx, speedUpDy, speed;
 
@@ -32,7 +32,7 @@ public:
 	sf::Texture texture;//сфмл текстура
 	sf::Sprite sprite;//сфмл спрайт
 
-
+public:
 	Personage(sf::Image &image, std::string Name, 
 		float CoordinateX, float CoordinateY, float Width, float Height,
 		int Atrack, int Defense, int Health, int DamageMin, int DamageMax,
@@ -72,8 +72,6 @@ public:
 	{};
 
 
-
-private:
 
 };
 

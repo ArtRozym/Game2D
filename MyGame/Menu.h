@@ -1,25 +1,29 @@
 #ifndef MENU_H
 #define MENU_H
 
-//#include <iostream> //
+#include <iostream> //
 void textureMenu(sf::RenderWindow & window)
 {
 	std::cout << "menu 1\n\n";//
 	sf::Texture menuTextureStartGame, menuTextureAboutTheProgram, 
-		menuTextureAbout, menuTextureExit, menuTexturePenguins;
+		menuTextureAbout, menuTextureExit, menuTexturePenguins,
+		gameMap1;
 
 	menuTexturePenguins.loadFromFile("images/Penguins.jpg");
 	menuTextureStartGame.loadFromFile("images/startGame.png");
 	menuTextureAboutTheProgram.loadFromFile("images/aboutTheProgram.png");
 	menuTextureAbout.loadFromFile("images/about.png");
 	menuTextureExit.loadFromFile("images/exit.png");
+	gameMap1.loadFromFile("images/map1.png");
 
 	std::cout << "menu 2\n\n";//
 	sf::Sprite menuSpriteStartGame(menuTextureStartGame),
 		menuSpritePenguins(menuTexturePenguins),
 		menuSpriteAboutTheProgram(menuTextureAboutTheProgram),
 		menuSpriteAbout(menuTextureAbout),
-		menuSpriteExit(menuTextureExit);
+		menuSpriteExit(menuTextureExit),
+		gameMapSprite1(gameMap1);
+
 
 	bool isMenu = true;
 	int menuNumber = 0;
@@ -65,7 +69,12 @@ void textureMenu(sf::RenderWindow & window)
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			std::cout << "click\n\n";//
-			if (menuNumber == 1) isMenu = false;
+			if (menuNumber == 1)
+			{
+				window.draw(gameMapSprite1);
+				window.display();
+				//isMenu = false;
+			}
 
 			if (menuNumber == 2)
 			{
