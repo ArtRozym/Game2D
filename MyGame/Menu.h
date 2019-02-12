@@ -73,6 +73,8 @@ void textureMenu(sf::RenderWindow & window)
 			{
 				window.draw(gameMapSprite1);
 				window.display();
+				
+				while (!(sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt)));
 				//isMenu = false;
 			}
 

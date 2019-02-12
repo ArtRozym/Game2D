@@ -27,8 +27,17 @@ int main()
 	//итератор чтобы проходить по эл-там списка
 	std::list<Personage*> ::iterator it;
 
-	//Personage easyInfantry{};
-	
+	sf::Image armyImage;
+	armyImage.loadFromFile("images/pers.png");
+
+	Personage easyInfantry {armyImage, 10.0, 10.0, 60, 60,
+							0, 0, 5, 4, 5, 2, 5, 0, 50, false, false, true};
+
+	Personage easyDowman {armyImage, 100.0, 100.0, 60, 60,
+							60, 0, 2, 2, 3, 1, 3, 10, 80, true, false, false};
+
+	Personage easyCavalry {armyImage, 200.0, 10.0, 60, 60,
+							120, 0, 6, 5, 7, 4, 7, 0, 120, false, true, false};
 
 	/*
 	// основной цикл

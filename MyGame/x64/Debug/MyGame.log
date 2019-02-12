@@ -1,3 +1,8 @@
 ﻿  Game.cpp
+d:\projects\с++\mvs\mygame\mygame\personages.h(73): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
 d:\projects\с++\mvs\mygame\mygame\functions.h(29): warning C4715: 'buy': not all control paths return a value
   MyGame.vcxproj -> D:\Projects\С++\MVS\MyGame\x64\Debug\MyGame.exe

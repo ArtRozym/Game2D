@@ -16,7 +16,8 @@ private:
 	//numberOfShots - запас пострілів
 	//cost - tchina
 	//numerosity - kilkist
-	int //direction, 
+	int //direction,
+		spriteCoordnateX, spriteCoordnateY,
 		attack, defense, health, 
 		damageMin, damageMax, numberOfShots, cost, numerosity;
 
@@ -25,7 +26,7 @@ private:
 	//infantry - pihota
 	bool life, dowmanYN, cavalryYN, infantryYN;
 
-	std::string namePersonage;
+	//std::string namePersonage;
 
 	//std::string File; //файл с расширением
 	//sf::Image image;//сфмл изображение
@@ -33,13 +34,17 @@ private:
 	sf::Sprite sprite;//сфмл спрайт
 
 public:
-	Personage(sf::Image &image, std::string Name, 
+	Personage(sf::Image &image, //std::string Name, 
 		float CoordinateX, float CoordinateY, float Width, float Height,
+		int SpriteCoordinateX, int SpriteCoordinateY,
 		int Atrack, int Defense, int Health, int DamageMin, int DamageMax,
 		int NumberOfShots, int Cost, 
 		bool DowmanYN, bool CavalryYN, bool InfantryYN)
 	{
-		namePersonage = Name;
+		//namePersonage = Name;
+
+		spriteCoordnateX = SpriteCoordinateX;
+		spriteCoordnateY = SpriteCoordinateY;
 
 		coordinateX = CoordinateX;
 		coordinateY = CoordinateY;
@@ -65,12 +70,14 @@ public:
 
 		texture.loadFromImage(image);
 		sprite.setTexture(texture);
-		sprite.setOrigin(width / 2, height / 2);
+		sprite.setTextureRect(sf::IntRect(spriteCoordnateX, spriteCoordnateY, width, height));
+		//sprite.setOrigin(width / 2, height / 2);
+		sprite.setPosition(coordinateX, coordinateY);
+		
 
 	};
 	~Personage() 
 	{};
-
 
 
 };
