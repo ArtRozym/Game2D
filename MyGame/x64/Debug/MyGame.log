@@ -1,8 +1,19 @@
 ﻿  Game.cpp
+d:\projects\с++\mvs\mygame\mygame\menu.h(5): error C2065: 'Personage': undeclared identifier
+d:\projects\с++\mvs\mygame\mygame\menu.h(5): error C2923: 'std::vector': 'Personage' is not a valid template type argument for parameter '_Ty'
+d:\projects\с++\mvs\mygame\mygame\menu.h(5): error C2903: 'allocator': symbol is neither a class template nor a function template
+d:\projects\с++\mvs\mygame\mygame\menu.h(5): error C3203: 'allocator': unspecialized class template can't be used as a template argument for template parameter '_Alloc', expected a real type
+d:\projects\с++\mvs\mygame\mygame\menu.h(78): error C2653: 'Personage': is not a class or namespace name
+d:\projects\с++\mvs\mygame\mygame\menu.h(78): error C2039: 'getNumerosity': is not a member of 'std::vector'
+  d:\mvsenterprise2017\vc\tools\msvc\14.16.27023\include\vector(625): note: see declaration of 'std::vector'
 d:\projects\с++\mvs\mygame\mygame\personages.h(73): warning C4244: 'argument': conversion from 'float' to 'T', possible loss of data
           with
           [
               T=int
           ]
-d:\projects\с++\mvs\mygame\mygame\functions.h(29): warning C4715: 'buy': not all control paths return a value
-  MyGame.vcxproj -> D:\Projects\С++\MVS\MyGame\x64\Debug\MyGame.exe
+d:\projects\с++\mvs\mygame\mygame\game.cpp(53): error C2664: 'void textureMenu(sf::RenderWindow &,std::vector *,int)': cannot convert argument 2 from 'std::vector<Personage,std::allocator<_Ty>> *' to 'std::vector *'
+          with
+          [
+              _Ty=Personage
+          ]
+  d:\projects\с++\mvs\mygame\mygame\game.cpp(53): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast

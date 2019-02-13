@@ -2,7 +2,7 @@
 #define MENU_H
 
 #include <iostream> //
-void textureMenu(sf::RenderWindow & window)
+void textureMenu(sf::RenderWindow & window, std::vector<Personage> * personage, int perSize)
 {
 	std::cout << "menu 1\n\n";//
 	sf::Texture menuTextureStartGame, menuTextureAboutTheProgram, 
@@ -72,6 +72,13 @@ void textureMenu(sf::RenderWindow & window)
 			if (menuNumber == 1)
 			{
 				window.draw(gameMapSprite1);
+				//std::vector<Personage>::iterator i;
+				//for (i = personage.begin(); i != personage.end(); i++)
+				for (int i = 0; i < perSize; i++)
+					if (personage[i].Personage::getNumerosity() > 0)
+						std::cout << "i=  " << i << std::endl;
+						//window.draw(personage[i].Personage::displayPersonage());
+
 				window.display();
 				
 				while (!(sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt)));

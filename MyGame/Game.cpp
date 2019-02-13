@@ -18,26 +18,39 @@ int main()
 	
 	std::cout << "program begin\n\n";
 
-	textureMenu(window);
+	//textureMenu(window);
 
 	std::cout << "program not begin\n\n";
 
 	//создаю список, сюда буду кидать объекты.
-	std::list<Personage*> entities; 
+	std::vector<Personage> personages; 
 	//итератор чтобы проходить по эл-там списка
 	std::list<Personage*> ::iterator it;
 
 	sf::Image armyImage;
 	armyImage.loadFromFile("images/pers.png");
 
-	Personage easyInfantry {armyImage, 10.0, 10.0, 60, 60,
+	Personage easyInfantry {armyImage, "easyInfantry", 10.0, 10.0, 60, 60,
 							0, 0, 5, 4, 5, 2, 5, 0, 50, false, false, true};
 
-	Personage easyDowman {armyImage, 100.0, 100.0, 60, 60,
+	Personage easyDowman {armyImage, "easyDowman", 100.0, 100.0, 60, 60,
 							60, 0, 2, 2, 3, 1, 3, 10, 80, true, false, false};
 
-	Personage easyCavalry {armyImage, 200.0, 10.0, 60, 60,
+	Personage easyCavalry {armyImage, "easyCavalry", 200.0, 10.0, 60, 60,
 							120, 0, 6, 5, 7, 4, 7, 0, 120, false, true, false};
+
+	personages.push_back(easyCavalry);
+	personages.push_back(easyInfantry);
+	personages.push_back(easyDowman);
+
+	/*personages.push_back(new Personage(armyImage, "easyCavalry", 200.0, 10.0, 60, 60,
+		120, 0, 6, 5, 7, 4, 7, 0, 120, false, true, false));
+	personages.push_back(new Personage(armyImage, "easyDowman", 100.0, 100.0, 60, 60,
+		60, 0, 2, 2, 3, 1, 3, 10, 80, true, false, false));
+	personages.push_back(new Personage( armyImage, "easyInfantry", 10.0, 10.0, 60, 60,
+							0, 0, 5, 4, 5, 2, 5, 0, 50, false, false, true ));*/
+
+	textureMenu(window, &personages, personages.size());
 
 	/*
 	// основной цикл
