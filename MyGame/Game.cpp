@@ -3,13 +3,12 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
-#include <vector>
 #include <string>
 #include "Menu.h"
 #include "Personages.h"
 #include "Functions.h"
 #include <iostream>
-#include <list>
+#include "Game.h"
 
 int main()
 {
@@ -22,35 +21,37 @@ int main()
 
 	std::cout << "program not begin\n\n";
 
+	int const numbersPersonages = 6;
+
 	//создаю список, сюда буду кидать объекты.
-	std::vector<Personage> personages; 
+	Personage personagesArray[numbersPersonages];
 	//итератор чтобы проходить по эл-там списка
-	std::list<Personage*> ::iterator it;
+	
+	//sf::Image armyImage;
+	//armyImage.loadFromFile("images/pers.png");
 
-	sf::Image armyImage;
-	armyImage.loadFromFile("images/pers.png");
+	//parametrs personage is player
+	personagesArray[0] = Personage{ "easyInfantry", 10.0, 10.0, 60.0, 60.0, 
+							0, 0, 20, 5, 4, 5, 2, 5, 0, 50, false, false, true};
 
-	Personage easyInfantry {armyImage, "easyInfantry", 10.0, 10.0, 60, 60,
-							0, 0, 5, 4, 5, 2, 5, 0, 50, false, false, true};
+	personagesArray[1] = Personage { "easyDowman", 100.0, 10.0, 60.0, 60.0, 
+							60, 0, 0, 2, 2, 3, 1, 3, 10, 80, true, false, false};
 
-	Personage easyDowman {armyImage, "easyDowman", 100.0, 100.0, 60, 60,
-							60, 0, 2, 2, 3, 1, 3, 10, 80, true, false, false};
+	personagesArray[2] = Personage { "easyCavalry", 200.0, 10.0, 60.0, 60.0, 
+							120, 0, 20, 6, 5, 7, 4, 7, 0, 120, false, true, false};
 
-	Personage easyCavalry {armyImage, "easyCavalry", 200.0, 10.0, 60, 60,
-							120, 0, 6, 5, 7, 4, 7, 0, 120, false, true, false};
+	//parametrs personage is enemy
+	personagesArray[3] = Personage{ "easyEnemyInfantry", 300.0, 10.0, 60.0, 60.0, 
+							180, 0, 0, 5, 4, 5, 2, 5, 0, 50, false, false, true };
 
-	personages.push_back(easyCavalry);
-	personages.push_back(easyInfantry);
-	personages.push_back(easyDowman);
+	personagesArray[4] = Personage{ "easyEnemyDowman", 400.0, 10.0, 60.0, 60.0, 
+							240, 0, 10, 2, 2, 3, 1, 3, 10, 80, true, false, false };
 
-	/*personages.push_back(new Personage(armyImage, "easyCavalry", 200.0, 10.0, 60, 60,
-		120, 0, 6, 5, 7, 4, 7, 0, 120, false, true, false));
-	personages.push_back(new Personage(armyImage, "easyDowman", 100.0, 100.0, 60, 60,
-		60, 0, 2, 2, 3, 1, 3, 10, 80, true, false, false));
-	personages.push_back(new Personage( armyImage, "easyInfantry", 10.0, 10.0, 60, 60,
-							0, 0, 5, 4, 5, 2, 5, 0, 50, false, false, true ));*/
+	personagesArray[5] = Personage{ "easyEnemyCavalry", 500.0, 10.0, 60.0, 60.0, 
+							300, 0, 10, 6, 5, 7, 4, 7, 0, 120, false, true, false };
 
-	textureMenu(window, &personages, personages.size());
+	
+	textureMenu(window, personagesArray, numbersPersonages);
 
 	/*
 	// основной цикл
@@ -74,6 +75,9 @@ int main()
 	}
 	*/
 
+
 	std::cout << "the end\n\n";
+
+	system("pause");
 	return 0;
 }

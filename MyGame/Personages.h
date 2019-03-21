@@ -14,8 +14,8 @@ private:
 	//damageMin - мінімальний урон, 
 	//damageMax - максимальний урон, 
 	//numberOfShots - запас пострілів
-	//cost - tchina
-	//numerosity - kilkist
+	//cost - ціна
+	//numerosity - кількість
 	int //direction,
 		spriteCoordnateX, spriteCoordnateY,
 		attack, defense, health, 
@@ -28,26 +28,29 @@ private:
 
 	std::string namePersonage;
 
+//public:
 	//std::string File; //файл с расширением
 	//sf::Image image;//сфмл изображение
 	sf::Texture texture;//сфмл текстура
 	sf::Sprite sprite;//сфмл спрайт
+	sf::Image armyImage;
+	//armyImage.loadFromFile("images/pers.png");
 
 public:
-	Personage(sf::Image &image, std::string Name, 
-		float CoordinateX, float CoordinateY, float Width, float Height,
-		int SpriteCoordinateX, int SpriteCoordinateY,
-		int Atrack, int Defense, int Health, int DamageMin, int DamageMax,
-		int NumberOfShots, int Cost, 
-		bool DowmanYN, bool CavalryYN, bool InfantryYN)
+	Personage(/*sf::Image &image,*/ std::string Name = "",
+		float positionCoordinateX = 0.0, float positionCoordinateY = 0.0, float Width = 0.0, float Height = 0.0,
+		int SpriteCoordinateX = 0, int SpriteCoordinateY = 0, int Numerosity = 0,
+		int Atrack = 0, int Defense = 0, int Health = 0, int DamageMin = 0, int DamageMax = 0,
+		int NumberOfShots = 0, int Cost = 0,
+		bool DowmanYN = false, bool CavalryYN = false, bool InfantryYN = false)
 	{
 		namePersonage = Name;
 
 		spriteCoordnateX = SpriteCoordinateX;
 		spriteCoordnateY = SpriteCoordinateY;
 
-		coordinateX = CoordinateX;
-		coordinateY = CoordinateY;
+		coordinateX = positionCoordinateX;
+		coordinateY = positionCoordinateY;
 		height = Height;
 		width = Width;
 		speed = 0;
@@ -61,35 +64,41 @@ public:
 		damageMax = DamageMax; 
 		numberOfShots = NumberOfShots; 
 		cost = Cost; 
-		numerosity = 0;
+		numerosity = Numerosity;
 
 		life = true;
 		dowmanYN = DowmanYN;
 		cavalryYN = CavalryYN;
 		infantryYN = InfantryYN;
 
-		texture.loadFromImage(image);
+		texture.loadFromFile("images/pers.png");
 		sprite.setTexture(texture);
 		sprite.setTextureRect(sf::IntRect(spriteCoordnateX, spriteCoordnateY, width, height));
 		//sprite.setOrigin(width / 2, height / 2);
-		//sprite.setPosition(coordinateX, coordinateY);
+		sprite.setPosition(coordinateX, coordinateY);
 		
-
 	};
+
 	~Personage() 
 	{};
 
 	int getNumerosity() { return numerosity; }
 
-	void displayPersonage()
+	sf::Sprite displayPersonage()
 	{
-		sprite.setPosition(coordinateX, coordinateY);
+		return sprite;
+	}
+
+	std::string getNamePersonage()
+	{
+		return namePersonage;
+	}
+
+	void setNumerosity(int newNumerosity)
+	{
+		numerosity = newNumerosity;
 	}
 
 };
-
-
-
-
 
 #endif // ! PERSONAGES_H

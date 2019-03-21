@@ -2,7 +2,8 @@
 #define MENU_H
 
 #include <iostream> //
-void textureMenu(sf::RenderWindow & window, std::vector<Personage> * personage, int perSize)
+#include "Personages.h"
+void textureMenu(sf::RenderWindow & window, Personage * arrayPersonages, int const perSize)
 {
 	std::cout << "menu 1\n\n";//
 	sf::Texture menuTextureStartGame, menuTextureAboutTheProgram, 
@@ -69,22 +70,24 @@ void textureMenu(sf::RenderWindow & window, std::vector<Personage> * personage, 
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 			std::cout << "click\n\n";//
+			//почати гру
 			if (menuNumber == 1)
 			{
 				window.draw(gameMapSprite1);
-				//std::vector<Personage>::iterator i;
-				//for (i = personage.begin(); i != personage.end(); i++)
+				
 				for (int i = 0; i < perSize; i++)
-					if (personage[i].Personage::getNumerosity() > 0)
-						std::cout << "i=  " << i << std::endl;
-						//window.draw(personage[i].Personage::displayPersonage());
+					if (arrayPersonages[i].getNumerosity() > 0)
+					{
+						window.draw(arrayPersonages[i].displayPersonage());
+					}
 
 				window.display();
 				
 				while (!(sf::Keyboard::isKeyPressed(sf::Keyboard::LAlt)));
-				//isMenu = false;
+				isMenu = false;
 			}
 
+			//опції 
 			if (menuNumber == 2)
 			{
 				window.draw(menuSpriteAbout);
@@ -92,6 +95,7 @@ void textureMenu(sf::RenderWindow & window, std::vector<Personage> * personage, 
 				while (!sf::Keyboard::isKeyPressed(sf::Keyboard::Escape));
 			}
 
+			//вихід з гри
 			if (menuNumber == 3)
 			{
 				window.close();
